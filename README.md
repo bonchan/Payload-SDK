@@ -40,6 +40,16 @@ bugs. Please refer to the release notes for detailed changes list.
 * Note: Streamlined the toolchain for compiling PSDK, removing low-usage toolchain libraries.
 > We have stopped offering some toolchains on GitHub. If you have trouble building your project, reach out to the SDK Support Team for help.
 
+# This branch
+This branch is intended to run PSDK with psdk_ros2_wrapper
+* Add a file in /etc/sudoers.d called dji_permissions with this content:
+```
+  %dialout ALL=(ALL) NOPASSWD: /bin/chmod /dev/ttyUSB0
+  %dialout ALL=(ALL) NOPASSWD: /bin/chmod /dev/ttyACM0
+  %dialout ALL=(ALL) NOPASSWD: /usr/sbin/ifconfig
+  %dialout ALL=(ALL) NOPASSWD: /usr/sbin/sysctl -w net.core.rmem_default=*
+  %dialout ALL=(ALL) NOPASSWD: /usr/sbin/sysctl -w net.core.rmem_max=*
+```
 ## License
 
 Payload SDK codebase is MIT-licensed. Please refer to the LICENSE file for detailed information.
